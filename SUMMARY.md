@@ -1,12 +1,16 @@
-# Table of contents
+# Content
 
-* [Hello World](README.md)
-* [Knowledge Base](knowledge-base.md)
-* [Changelog](changelog.md)
-* [API Docs](api-docs/README.md)
-  * [Create cakes](api-docs/create-cakes.md)
-  * [Read cakes](api-docs/read-cakes.md)
-  * [Update cakes](api-docs/update-cakes.md)
-  * [Delete cakes](api-docs/delete-cakes.md)
-* [New API docs](new_api_docs.md)
+* [API Docs](README.md)
+* [Measurements](measurements/readme.md)
+	* [Create Measurement](measurements/create-measurement.md)
+	* [Retrieve Measurement](measurements/retrieve-measurement.md)
+* [Metrics](metrics/readme.md)
+	* [Create Metric](metrics/create-metric.md)
+	* [Update Metric](metrics/update-metric.md)
+	* [Delete Metric](metrics/delete-metric.md)
+* [Metrics Too](metrics2/readme.md)
+	* [Create Metric](metrics2/readme.md#create-a-metric)
+	* [Update Metric](metrics2/readme.md#update-a-metric)
+	* [Delete Metric](metrics2/readme.md#delete-a-metric)
+
 
