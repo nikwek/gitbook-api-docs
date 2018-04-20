@@ -1,5 +1,5 @@
 {
-    "plugins": ["theme-api", "anchors", "hints"],
+    "plugins": ["theme-api", "anchors", "hints", "expandable-chapters"],
     "pluginsConfig": {
         "theme-api": {
             "theme": "dark"
