@@ -21,6 +21,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-hints/plugin-hints.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -65,7 +69,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="create-metric.html" />
+    <link rel="next" href="readme.html" />
     
     
     <link rel="prev" href="../measurements/retrieve-measurement.html" />
@@ -169,67 +173,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="create-metric.html">
+        <li class="chapter " data-level="1.3.1" data-path="readme.html">
             
-                <a href="create-metric.html">
-            
-                    
-                    Create Metric
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.2" data-path="update-metric.html">
-            
-                <a href="update-metric.html">
-            
-                    
-                    Update Metric
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.3" data-path="delete-metric.html">
-            
-                <a href="delete-metric.html">
-            
-                    
-                    Delete Metric
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4" data-path="../metrics2/readme.html">
-            
-                <a href="../metrics2/readme.html">
-            
-                    
-                    Metrics Too
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.4.1" data-path="../metrics2/readme.html">
-            
-                <a href="../metrics2/readme.html#create-a-metric">
+                <a href="readme.html#create-a-metric">
             
                     
                     Create Metric
@@ -240,9 +186,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" data-path="../metrics2/readme.html">
+        <li class="chapter " data-level="1.3.2" data-path="readme.html">
             
-                <a href="../metrics2/readme.html#update-a-metric">
+                <a href="readme.html#update-a-metric">
             
                     
                     Update Metric
@@ -253,9 +199,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="../metrics2/readme.html">
+        <li class="chapter " data-level="1.3.3" data-path="readme.html">
             
-                <a href="../metrics2/readme.html#delete-a-metric">
+                <a href="readme.html#delete-a-metric">
             
                     
                     Delete Metric
@@ -318,7 +264,7 @@
                                 
                                 <h1 id="metrics"><a name="metrics" class="plugin-anchor" href="#metrics"><i class="fa fa-link" aria-hidden="true"></i></a>Metrics</h1>
 <p>Metrics represent the individual time-series sent to the AppOptics service. Each measurement sent to AppOptics is associated with a Metric.</p>
-<h4 id="metric-properties"><a name="metric-properties" class="plugin-anchor" href="#metric-properties"><i class="fa fa-link" aria-hidden="true"></i></a>Metric Properties</h4>
+<h2 id="metric-properties"><a name="metric-properties" class="plugin-anchor" href="#metric-properties"><i class="fa fa-link" aria-hidden="true"></i></a>Metric Properties</h2>
 <table>
 <thead>
 <tr>
@@ -353,7 +299,73 @@
 </tr>
 </tbody>
 </table>
+<div class="api-method"><div class="api-method-definition"><h2 id="create-a-metric"><a name="create-a-metric" class="plugin-anchor" href="#create-a-metric"><i class="fa fa-link" aria-hidden="true"></i></a>Create a Metric</h2>
+<p>Metrics can be created without submitting a measurement value using a PUT to the <code>/metrics</code> endpoint.
+Metrics are automatically created by POSTing a measurement for the first time. See <a href="#create-a-measurement">Create a Measurement</a>.</p>
+</div><div class="api-method-code"><div class="api-method-sample" data-lang="bash" data-name="Bash"><pre><code class="lang-bash">curl \
+-u <span class="hljs-variable">$APPOPTICS_TOKEN</span>: \
+-H <span class="hljs-string">&quot;Content-Type: application/json&quot;</span> \
+<span class="hljs-_">-d</span> <span class="hljs-string">&apos;{
+  &quot;type&quot;: &quot;gauge&quot;,
+  &quot;name&quot;: &quot;cpu.percent.used&quot;,
+  &quot;period&quot;: 60,
+  &quot;attributes&quot;: {
+    &quot;summarize_function&quot;: &quot;sum&quot;,
+    &quot;color&quot;: &quot;#FFFFFF&quot;
+  },
+  &quot;tags&quot;: {
+    &quot;environment&quot;: &quot;prod&quot;,
+    &quot;service&quot;: &quot;api&quot;
+  }
+}&apos;</span> \
+-X PUT \
+<span class="hljs-string">&apos;https://api.appoptics.com/v1/metrics/cpu.percent.used&apos;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="Ruby"><pre><code class="lang-ruby">Not yet available
+</code></pre>
+</div><div class="api-method-sample" data-lang="python" data-name="Python"><pre><code class="lang-python">Not yet available
+</code></pre>
+</div></div></div>
 
+<div class="api-method"><div class="api-method-definition"><h2 id="update-a-metric"><a name="update-a-metric" class="plugin-anchor" href="#update-a-metric"><i class="fa fa-link" aria-hidden="true"></i></a>Update a Metric</h2>
+<h3 id="http-request"><a name="http-request" class="plugin-anchor" href="#http-request"><i class="fa fa-link" aria-hidden="true"></i></a>HTTP Request</h3>
+<p><code>PUT https://api.appoptics.com/v1/metrics</code></p>
+<p>Set the <code>period</code> and <code>display_min</code> for metrics <code>cpu</code>, <code>servers</code> and <code>reqs</code>:</p>
+</div><div class="api-method-code"><div class="api-method-sample" data-lang="bash" data-name="Bash"><pre><code class="lang-bash">curl \
+  -u <span class="hljs-variable">$APPOPTICS_TOKEN</span>: \
+  <span class="hljs-_">-d</span> <span class="hljs-string">&apos;names%5B%5D=cpu&amp;names%5B%5D=servers&amp;names%5B%5D=reqs&amp;period=60&amp;display_min=0&apos;</span> \
+  -X PUT \
+  <span class="hljs-string">&apos;https://api.appoptics.com/v1/metrics&apos;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="Ruby"><pre><code class="lang-ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">&quot;appoptics/metrics&quot;</span>
+<span class="hljs-symbol">AppOptics:</span><span class="hljs-symbol">:Metrics</span>.authenticate &lt;token&gt;
+<span class="hljs-symbol">AppOptics:</span><span class="hljs-symbol">:Metrics</span>.update_metrics <span class="hljs-symbol">names:</span> [<span class="hljs-string">&quot;cpu&quot;</span>, <span class="hljs-string">&quot;servers&quot;</span>, <span class="hljs-string">&quot;reqs&quot;</span>], <span class="hljs-symbol">period:</span> <span class="hljs-number">60</span>, <span class="hljs-symbol">display_min:</span> <span class="hljs-number">0</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="python" data-name="Python"><pre><code class="lang-python"><span class="hljs-keyword">import</span> librato
+api = librato.connect(&lt;user&gt;, &lt;token&gt;)
+<span class="hljs-keyword">for</span> name <span class="hljs-keyword">in</span> [<span class="hljs-string">&apos;cpu&apos;</span>, <span class="hljs-string">&apos;servers&apos;</span>, <span class="hljs-string">&apos;reqs&apos;</span>]:
+  gauge = api.get(name)
+  attrs[<span class="hljs-string">&apos;period&apos;</span>] = <span class="hljs-string">&apos;60&apos;</span>
+  attrs[<span class="hljs-string">&apos;display_min&apos;</span>] = <span class="hljs-string">&apos;0&apos;</span>
+  api.update(name, attributes=attrs)
+</code></pre>
+</div></div></div>
+
+<div class="api-method"><div class="api-method-definition"><h2 id="delete-a-metric"><a name="delete-a-metric" class="plugin-anchor" href="#delete-a-metric"><i class="fa fa-link" aria-hidden="true"></i></a>Delete a Metric</h2>
+<p>Set the <code>display_units_short</code> for all metrics that end with <code>.time</code>:</p>
+</div><div class="api-method-code"><div class="api-method-sample" data-lang="bash" data-name="Bash"><pre><code class="lang-bash">curl \
+  -u <span class="hljs-variable">$APPOPTICS_TOKEN</span>: \
+  <span class="hljs-_">-d</span> <span class="hljs-string">&apos;names=*.time&amp;display_units_short=ms&apos;</span> \
+  -X PUT \
+  <span class="hljs-string">&apos;https://api.appoptics.com/v1/metrics&apos;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="Ruby"><pre><code class="lang-ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">&quot;appoptics/metrics&quot;</span>
+<span class="hljs-symbol">AppOptics:</span><span class="hljs-symbol">:Metrics</span>.authenticate &lt;token&gt;
+<span class="hljs-symbol">AppOptics:</span><span class="hljs-symbol">:Metrics</span>.update_metrics <span class="hljs-symbol">names:</span> [<span class="hljs-string">&quot;*.time&quot;</span>] , <span class="hljs-symbol">display_units_short:</span> <span class="hljs-string">&quot;ms&quot;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="python" data-name="Python"><pre><code class="lang-python">Not yet available
+</code></pre>
+</div></div></div>
                                 
                                 </section>
                             
@@ -386,7 +398,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Metrics","level":"1.3","depth":1,"next":{"title":"Create Metric","level":"1.3.1","depth":2,"path":"metrics/create-metric.md","ref":"metrics/create-metric.md","articles":[]},"previous":{"title":"Retrieve Measurement","level":"1.2.2","depth":2,"path":"measurements/retrieve-measurement.md","ref":"measurements/retrieve-measurement.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","anchors","livereload"],"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"metrics/readme.md","mtime":"2018-04-19T23:08:31.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-04-19T23:44:45.654Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Metrics","level":"1.3","depth":1,"next":{"title":"Create Metric","level":"1.3.1","depth":2,"anchor":"#create-a-metric","path":"metrics/readme.md","ref":"metrics/readme.md#create-a-metric","articles":[]},"previous":{"title":"Retrieve Measurement","level":"1.2.2","depth":2,"path":"measurements/retrieve-measurement.md","ref":"measurements/retrieve-measurement.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","anchors","hints","livereload"],"pluginsConfig":{"livereload":{},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"metrics/readme.md","mtime":"2018-04-19T23:47:23.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-04-19T23:58:30.204Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

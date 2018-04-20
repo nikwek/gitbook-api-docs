@@ -1,19 +1,34 @@
 # Hello World
 
-## Getting Super Powers
+## Testing GitBook for API docs
 
-Becoming a super hero is a fairly straight forward process:
+Supports Markdown with neat features
 
 ```
 $ give me super-powers
 ```
 
-Once you're strong enough, save the world:
+### Hint
 
-```
-// Ain't no code for that yet, sorry
-echo 'You got to trust me on this, I saved the world'
-```
+Available styles are:
 
+- info (default)
+- tip
+- danger
+- working
 
+{% hint style='info' %}
+Important info: this note needs to be highlighted
+{% endhint %}
 
+{% hint style='tip' %}
+Tip: this note needs to be highlighted
+{% endhint %}
+
+{% hint style='danger' %}
+Danger: this note needs to be highlighted
+{% endhint %}
+
+{% hint style='working' %}
+Working: this note needs to be highlighted
+{% endhint %}
