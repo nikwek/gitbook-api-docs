@@ -10,31 +10,15 @@ node_modules/*
 
 # Book build output
 _book/*
+*.html
 
 # eBook build output
 *.epub
 *.mobi
 *.pdf
-_book/measurements/create-measurement.html
 
-_book/measurements/readme.html
 
-*.html
 
-_book/measurements/retrieve-measurement.html
 
-_book/metrics/readme.html
-
-_book/metrics/readme.html
-
-_book/search_index.json
-
-_book/search_index.json
-
-_book/search_index.json
-
-_book/metrics/readme.html
-
-_book/metrics/readme.html
 
 _book/search_index.json
