@@ -1,8 +1,8 @@
 {
-    "plugins": ["theme-api", "anchors", "hints", "expandable-chapters","codetabs"],
+    "plugins": ["theme-api", "anchors", "hints", "expandable-chapters", "codetabs"],
     "pluginsConfig": {
         "theme-api": {
-            "theme": "dark"
+            "theme": "light"
         }
     }
 }
