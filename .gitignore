@@ -18,7 +18,6 @@ _book/*
 *.pdf
 
 
-
-
-
 _book/search_index.json
+_book/metrics/readme.html
+_book/index.html
